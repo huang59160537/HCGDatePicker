@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vog-wu-RZb">
+                                <rect key="frame" x="93" y="204" width="188" height="30"/>
+                                <state key="normal" title="DatePickerYearMonthMode"/>
+                                <connections>
+                                    <action selector="DatePickerYearMonthModeClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lom-It-e40"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3g2-nE-kiQ">
+                                <rect key="frame" x="114" y="288" width="146" height="30"/>
+                                <state key="normal" title="DatePickerDateMode"/>
+                                <connections>
+                                    <action selector="DatePickerDateModeClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ron-Zc-4IQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8CJ-F9-rYN">
+                                <rect key="frame" x="114" y="383" width="147" height="30"/>
+                                <state key="normal" title="DatePickerHourMode"/>
+                                <connections>
+                                    <action selector="DatePickerHourModeClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qXn-rF-Dqm"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="3g2-nE-kiQ" firstAttribute="top" secondItem="Vog-wu-RZb" secondAttribute="bottom" constant="54" id="4Vp-nc-YEs"/>
+                            <constraint firstItem="8CJ-F9-rYN" firstAttribute="top" secondItem="3g2-nE-kiQ" secondAttribute="bottom" constant="65" id="EFY-Qm-Hkd"/>
+                            <constraint firstItem="8CJ-F9-rYN" firstAttribute="centerX" secondItem="3g2-nE-kiQ" secondAttribute="centerX" id="HW2-fq-jXY"/>
+                            <constraint firstItem="3g2-nE-kiQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PVw-N4-ueJ"/>
+                            <constraint firstItem="3g2-nE-kiQ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-30.5" id="eJz-P7-HIC"/>
+                            <constraint firstItem="Vog-wu-RZb" firstAttribute="centerX" secondItem="3g2-nE-kiQ" secondAttribute="centerX" id="j3z-pq-meG"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>

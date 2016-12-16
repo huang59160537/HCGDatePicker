@@ -1,25 +1,22 @@
 # KSDatePicker
 
-![image](https://github.com/18301125620/KSDatePicker/blob/master/Untitled.gif)
+![image](https://github.com/huang59160537/HCGDatePicker/blob/master/DatePickerDateMode.png)
+![image](https://github.com/huang59160537/HCGDatePicker/blob/master/DatePickerHourMode.png)
+![image](https://github.com/huang59160537/HCGDatePicker/blob/master/DatePickerYearMonthMode.png)
 
 ```
-//x,y 值无效，默认是居中的
-    KSDatePicker* picker = [[KSDatePicker alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width - 40, 300)];
-    
-    //配置中心，详情见KSDatePikcerApperance
-    picker.appearance.radius = 5;
-    
-    //设置回调
-    picker.appearance.resultCallBack = ^void(KSDatePicker* datePicker,NSDate* currentDate,KSDatePickerButtonType buttonType){
-        
-        if (buttonType == KSDatePickerButtonCommit) {
-            
-            NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
-            [formatter setDateFormat:@"yyyy-MM-dd"];
-            
-            [sender setTitle:[formatter stringFromDate:currentDate] forState:UIControlStateNormal];
-        }
-    };
+    HCGDatePickerAppearance *picker = [[HCGDatePickerAppearance alloc]initWithDatePickerMode:DatePickerYearMonthMode completeBlock:^(NSDate *date) {
+
+    NSString *formatStr = @"yyyy年MM月";
+
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+
+    [dateFormatter setDateFormat:formatStr];
+
+    NSLog(@"%@",[dateFormatter stringFromDate:date]);
+
+}];
     // 显示
     [picker show];
 ```
+HCGDatePickerAppearance.h样式类，可随意自定义。

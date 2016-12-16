@@ -1,8 +1,6 @@
 # KSDatePicker
 
-![image](https://github.com/huang59160537/HCGDatePicker/blob/master/DatePickerDateMode.png)
-![image](https://github.com/huang59160537/HCGDatePicker/blob/master/DatePickerHourMode.png)
-![image](https://github.com/huang59160537/HCGDatePicker/blob/master/DatePickerYearMonthMode.png)
+![image](https://github.com/huang59160537/HCGDatePicker/blob/master/demo.gif)
 
 ```
     HCGDatePickerAppearance *picker = [[HCGDatePickerAppearance alloc]initWithDatePickerMode:DatePickerYearMonthMode completeBlock:^(NSDate *date) {

@@ -1,4 +1,4 @@
-# KSDatePicker
+# HCGDatePicker
 
 ![image](https://github.com/huang59160537/HCGDatePicker/blob/master/demo.gif)
 

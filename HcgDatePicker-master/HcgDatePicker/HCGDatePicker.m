@@ -9,10 +9,10 @@
 #import "HCGDatePicker.h"
 
 // Identifiers of components
-#define HOUR ( 3 )
-#define DAY ( 2 )
+#define HOUR  ( 3 )
+#define DAY   ( 2 )
 #define MONTH ( 1 )
-#define YEAR ( 0 )
+#define YEAR  ( 0 )
 #define minTimeInterval 631152000
 
 
@@ -45,37 +45,7 @@
 
 #pragma mark - Properties
 
--(void)setMonthFont:(UIFont *)monthFont
-{
-    if (monthFont)
-    {
-        _monthFont = monthFont;
-    }
-}
 
--(void)setMonthSelectedFont:(UIFont *)monthSelectedFont
-{
-    if (monthSelectedFont)
-    {
-        _monthSelectedFont = monthSelectedFont;
-    }
-}
-
--(void)setYearFont:(UIFont *)yearFont
-{
-    if (yearFont)
-    {
-        _yearFont = yearFont;
-    }
-}
-
--(void)setYearSelectedFont:(UIFont *)yearSelectedFont
-{
-    if (yearSelectedFont)
-    {
-        _yearSelectedFont = yearSelectedFont;
-    }
-}
 
 #pragma mark - Init
 
@@ -270,8 +240,8 @@
         returnView = [self labelForComponent:component];
     }
     
-    returnView.font = selected ? [self selectedFontForComponent:component] : [self fontForComponent:component];
-    returnView.textColor = selected ? [self selectedColorForComponent:component] : [self colorForComponent:component];
+    returnView.font = selected ? self.selectedFont : self.font;
+    returnView.textColor = selected ? self.selectedTextColor : self.textColor;
     
     returnView.text = [self titleForRow:row forComponent:component];
     return returnView;
@@ -293,42 +263,21 @@
 {
     if(component == MONTH)
     {
-        return [self bigRowMonthCount];
-        
-    }else if (component == YEAR) {
-        return [self bigRowYearCount];
-    }else if (component == DAY) {
-        return [self bigRowDaysCount];
-    }else {
-        return [self bigRowHoursCount];
+        return self.months.count;
+    } else if (component == YEAR)
+    {
+        return self.years.count;
+    } else if (component == DAY)
+    {
+        return self.days.count;
+    } else
+    {
+        return self.hours.count;
     }
 }
 
 #pragma mark - Util
 
--(NSInteger)bigRowMonthCount
-{
-    //    return self.months.count  * bigRowCount;
-    return self.months.count;
-}
-
--(NSInteger)bigRowYearCount
-{
-    //    return self.years.count  * bigRowCount;
-    return self.years.count;
-}
-
--(NSInteger)bigRowDaysCount
-{
-    //    return [self nameOfDays].count  * bigRowCount;
-    return self.days.count;
-}
-
--(NSInteger)bigRowHoursCount
-{
-    //    return [self nameOfDays].count  * bigRowCount;
-    return self.hours.count;
-}
 
 -(CGFloat)componentWidth
 {
@@ -590,41 +539,6 @@
     return [formatter stringFromDate:[NSDate date]];
 }
 
-- (UIColor *)selectedColorForComponent:(NSInteger)component
-{
-    if (component == 1)
-    {
-        return self.monthSelectedTextColor;
-    }
-    return self.yearSelectedTextColor;
-}
-
-- (UIColor *)colorForComponent:(NSInteger)component
-{
-    if (component == 1)
-    {
-        return self.monthTextColor;
-    }
-    return self.yearTextColor;
-}
-
-- (UIFont *)selectedFontForComponent:(NSInteger)component
-{
-    if (component == 1)
-    {
-        return self.monthSelectedFont;
-    }
-    return self.yearSelectedFont;
-}
-
-- (UIFont *)fontForComponent:(NSInteger)component
-{
-    if (component == 1)
-    {
-        return self.monthFont;
-    }
-    return self.yearFont;
-}
 
 -(void)loadDefaultsParameters
 {
@@ -638,18 +552,12 @@
     self.dataSource = self;
     self.days = [self nameOfDays];
     [self selectDate:self.minDate];
-        
-    self.monthSelectedTextColor = [UIColor blackColor];
-    self.monthTextColor = [UIColor blackColor];
     
-    self.yearSelectedTextColor = [UIColor blackColor];
-    self.yearTextColor = [UIColor blackColor];
-    
-    self.monthSelectedFont = [UIFont systemFontOfSize:17];
-    self.monthFont = [UIFont systemFontOfSize:17];
-    
-    self.yearSelectedFont = [UIFont systemFontOfSize:17];
-    self.yearFont = [UIFont systemFontOfSize:17];
+    self.selectedTextColor = [UIColor blackColor];
+    self.textColor = [UIColor blackColor];
+
+    self.selectedFont = [UIFont systemFontOfSize:17];
+    self.font = [UIFont systemFontOfSize:17];
 }
 
 
@@ -687,7 +595,6 @@
             } else if (([self selectedRowInComponent:YEAR] == self.years.count - 1) && [self selectedRowInComponent:MONTH] == self.months.count - 1 ) {
                 self.days = [self nameOfMaxDays];
             } else if (([self selectedRowInComponent:YEAR] == 0 ) && [self selectedRowInComponent:MONTH] == 0 ) {
-                //&& self.months.count != 1
                 self.days = [self nameOfMinDays];
             } else {
                 self.days = [self nameOfDays];

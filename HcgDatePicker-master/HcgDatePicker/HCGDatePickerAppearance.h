@@ -13,6 +13,7 @@
 @interface HCGDatePickerAppearance : UIView
 
 - (instancetype)initWithDatePickerMode:(DatePickerMode)dataPickerMode completeBlock:(void (^)(NSDate *date))completeBlock;
+
 - (void)show;
 
 @end

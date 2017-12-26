@@ -200,7 +200,7 @@
 				TargetAttributes = {
 					63DB5A7D1E0139CB0019C0ED = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = APA6GZCPQK;
+						DevelopmentTeam = 89TRXTASDL;
 						ProvisioningStyle = Automatic;
 					};
 					63DB5A961E0139CB0019C0ED = {
@@ -420,7 +420,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = APA6GZCPQK;
+				DEVELOPMENT_TEAM = 89TRXTASDL;
 				INFOPLIST_FILE = "HcgDatePicker-master/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.chedaoshanqian.HcgDatePicker-master";
@@ -432,7 +432,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = APA6GZCPQK;
+				DEVELOPMENT_TEAM = 89TRXTASDL;
 				INFOPLIST_FILE = "HcgDatePicker-master/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.chedaoshanqian.HcgDatePicker-master";

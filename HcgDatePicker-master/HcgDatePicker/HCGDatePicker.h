@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 
 typedef enum {
-    DatePickerYearMonthMode = 2,
-    DatePickerDateMode,
-    DatePickerHourMode
+    DatePickerYearMonthMode = 2, //仅年月模式
+    DatePickerDateMode,          //年月日模式
+    DatePickerHourMode           //年月日带时间模式
 }DatePickerMode;
 
 @class HCGDatePicker;
@@ -19,6 +19,7 @@ typedef enum {
 @protocol HCGDatePickerDelegate <NSObject>
 
 @optional
+
 - (void)datePicker:(HCGDatePicker *)datePicker didSelectedDate:(NSDate *)date;
 
 @end
@@ -27,20 +28,30 @@ typedef enum {
 
 @property (weak, nonatomic) id<HCGDatePickerDelegate> dvDelegate;
 
-@property (nonatomic, strong) UIColor *monthSelectedTextColor;
-@property (nonatomic, strong) UIColor *monthTextColor;
+/**
+ dataPicker 选中的文字颜色
+ */
+@property (nonatomic, strong) UIColor *selectedTextColor;
 
-@property (nonatomic, strong) UIColor *yearSelectedTextColor;
-@property (nonatomic, strong) UIColor *yearTextColor;
+/**
+ dataPicker 文字颜色
+ */
+@property (nonatomic, strong) UIColor *textColor;
 
-@property (nonatomic, strong) UIFont *monthSelectedFont;
-@property (nonatomic, strong) UIFont *monthFont;
+/**
+ dataPicker 选中的字体
+ */
+@property (nonatomic, strong) UIFont *selectedFont;
 
-@property (nonatomic, strong) UIFont *yearSelectedFont;
-@property (nonatomic, strong) UIFont *yearFont;
+/**
+ dataPicker 字体
+ */
+@property (nonatomic, strong) UIFont *font;
 
+/**
+ 行高
+ */
 @property (nonatomic, assign) NSInteger rowHeight;
-
 
 /**
  *  查看datePicker当前选择的日期
@@ -49,7 +60,7 @@ typedef enum {
 
 
 /**
- *  datePicker显示date
+ *  设置当前datePicker显示的日期
  */
 - (void)selectDate:(NSDate *)date;
 
@@ -57,5 +68,14 @@ typedef enum {
  *  datePicker设置最小年份和最大年份
  */
 - (void)setMinDate:(NSDate *)minDate;
+
+/**
+ 快速构造
+
+ @param datePickerMode dataPicker的模式
+ @param minDate 最早的时间
+ @param maxDate 最晚的时间
+ @return 返回的实列
+ */
 -(instancetype)initWithDatePickerMode:(DatePickerMode)datePickerMode MinDate:(NSDate *)minDate MaxDate:(NSDate *)maxDate;
 @end

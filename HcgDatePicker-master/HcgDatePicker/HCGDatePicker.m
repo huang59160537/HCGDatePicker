@@ -161,8 +161,6 @@
 - (void)setupMinYear:(NSInteger)minYear maxYear:(NSInteger)maxYear
 {
     self.minYear = minYear;
-    
-    
     if (maxYear > minYear)
     {
         self.maxYear = maxYear;
@@ -281,7 +279,8 @@
 
 -(CGFloat)componentWidth
 {
-    return self.bounds.size.width / _numberOfComponent;
+    CGFloat number = _numberOfComponent >= 3 ? _numberOfComponent:3;
+    return self.bounds.size.width / number;
 }
 
 -(NSString *)titleForRow:(NSInteger)row forComponent:(NSInteger)component
@@ -421,9 +420,6 @@
 
 -(NSArray *)nameOfMonths
 {
-    
-    
-    
     return @[@"1月", @"2月", @"3月", @"4月", @"5月", @"6月", @"7月", @"8月", @"9月", @"10月", @"11月", @"12月"];
 }
 

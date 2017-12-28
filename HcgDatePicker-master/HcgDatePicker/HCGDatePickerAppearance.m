@@ -51,18 +51,18 @@ typedef void(^dateBlock)(NSDate *);
     UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(kScreenWidth - 80, 8, 80, 40)];
     [btn setTitle:@"确定" forState:UIControlStateNormal];
     [btn setTitleColor:[UIColor colorWithRed:15/255.0f green:136/255.0f blue:235/255.0f alpha:1] forState:UIControlStateNormal];
-    [btn addTarget:self action:@selector(done) forControlEvents:UIControlEventTouchUpInside];
+    [btn addTarget:self action:@selector(doneClick) forControlEvents:UIControlEventTouchUpInside];
     [self.backView addSubview:_datePicker];
     [self.backView addSubview:btn];
     [self addSubview:self.backView];
 }
 
-- (void)done {
+- (void)doneClick {
     if (_dateBlock) {
         _dateBlock(_datePicker.date);
     }
-
 }
+
 
 - (void)show {
     [[UIApplication sharedApplication].keyWindow addSubview:self];
@@ -73,6 +73,7 @@ typedef void(^dateBlock)(NSDate *);
     }];
 }
 
+
 -(void)hide {
     [UIView animateWithDuration:0.2 animations:^{
         _backView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, BACK_HEIGHT);
@@ -80,7 +81,6 @@ typedef void(^dateBlock)(NSDate *);
     } completion:^(BOOL finished) {
         [self removeFromSuperview];
     }];
-
 }
 
 @end
